@@ -1,0 +1,379 @@
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-size: 15px;
+  font-family: "Inter", sans-serif;
+  background-color: hsl(36, 100%, 99%);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100dvw;
+  min-height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.4); /* Adjust opacity as needed */
+  display: none; /* Initially hidden */
+  z-index: 80; /* Ensure it's above other content */
+}
+
+main {
+  max-width: 1800px;
+  margin: 0 auto;
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: auto;
+  align-content: center;
+  padding: 2rem 1rem;
+  row-gap: 2.5rem;
+  justify-content: center;
+  position: relative;
+}
+main header {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+main header .brand-logo, main header .nav-links {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 40px;
+}
+main header .nav-links ul {
+  display: none;
+}
+main header .nav-links.open-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6rem;
+  padding: 0 1.2rem;
+  padding-top: 2rem;
+  background-color: hsl(36, 100%, 99%);
+  min-width: 17.45rem;
+  min-height: 100dvh;
+  cursor: pointer;
+  animation: fadein 0.3s forwards;
+}
+main header .nav-links.open-menu .menu-btn {
+  align-self: flex-end;
+}
+main header .nav-links.open-menu .menu-btn img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50% 100%;
+     object-position: 50% 100%;
+}
+main header .nav-links.open-menu ul {
+  display: flex;
+  list-style-type: none;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1.3rem;
+}
+main header .nav-links.open-menu ul li > a {
+  text-decoration: none;
+  cursor: pointer;
+  color: hsl(240, 100%, 5%);
+  transition: all 300ms;
+  font-size: clamp(1.2rem, 3vw, 1.3rem);
+  font-weight: 400;
+}
+main header .nav-links.open-menu ul li > a:hover {
+  color: hsl(35, 77%, 62%);
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 1;
+    width: 17.45rem;
+    height: 100dvh;
+  }
+}
+main header .nav-links.close-menu {
+  display: flex;
+  animation: fadeout 300ms forwards;
+}
+main header .nav-links.close-menu ul {
+  display: none;
+}
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+    width: 17.45rem;
+    height: 100dvh;
+  }
+  100% {
+    opacity: 1;
+    width: auto;
+    height: 40px;
+  }
+}
+main .first .bg {
+  background-image: url("images/image-web-3-mobile.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 600px;
+  margin-bottom: 1.5rem;
+}
+main .first h1 {
+  color: hsl(240, 100%, 5%);
+  max-width: 300px;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+main .first p {
+  text-overflow: ellipsis;
+  text-wrap: wrap;
+  line-height: 1.8rem;
+  color: hsl(236, 13%, 42%);
+  margin-bottom: 1.5rem;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-weight: 400;
+}
+main .first button {
+  background-color: hsl(5, 85%, 63%);
+  color: hsl(36, 100%, 99%);
+  border: none;
+  border-radius: 0;
+  padding: 1.15rem 2.15rem;
+  text-align: center;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 300ms;
+  cursor: pointer;
+}
+main .first button:hover {
+  background-color: hsl(240, 100%, 5%);
+}
+main .second {
+  background-color: hsl(240, 100%, 5%);
+  padding: 1.5rem 1.3rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: flex-start;
+}
+main .second span {
+  display: inline-block;
+  color: hsl(35, 77%, 62%);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+main .second .headline {
+  width: 100%;
+  border: none;
+  padding-bottom: 1.5rem;
+  cursor: pointer;
+}
+main .second .headline h3 {
+  margin-bottom: 1rem;
+  color: hsl(36, 100%, 99%);
+  font-weight: 700;
+  font-size: 1.35rem;
+  transition: all 300ms;
+}
+main .second .headline h3:hover {
+  color: hsl(35, 77%, 62%);
+}
+main .second .headline p {
+  color: hsl(233, 8%, 79%);
+  font-size: clamp(1rem, 3vw, 1.29rem);
+  font-weight: 400;
+  line-height: 1.7rem;
+  display: inline-block;
+  width: 100%;
+}
+main .second .headline.hr {
+  border-bottom: 1.35px solid rgba(197, 198, 206, 0.5);
+}
+main .third {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+main .third .others {
+  display: flex;
+  justify-content: space-between;
+  height: 130px;
+  gap: 1rem;
+  overflow: hidden;
+}
+main .third .others .sm-bg {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  width: 100px;
+  height: 130px;
+  align-self: stretch;
+}
+main .third .others .one {
+  background-image: url("images/image-retro-pcs.jpg");
+}
+main .third .others .two {
+  background-image: url("images/image-top-laptops.jpg");
+}
+main .third .others .three {
+  background-image: url("images/image-gaming-growth.jpg");
+}
+main .third .others .sm-news {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  gap: 0.8rem;
+}
+main .third .others .sm-news .num {
+  display: inline-block;
+  color: hsl(233, 8%, 79%);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+main .third .others .sm-news h4 {
+  color: hsl(240, 100%, 5%);
+  font-size: 1.2rem;
+  font-weight: 800;
+  transition: all 300ms;
+}
+main .third .others .sm-news h4:hover {
+  color: hsl(35, 77%, 62%);
+}
+main .third .others .sm-news p {
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  font-weight: 400;
+  color: hsl(236, 13%, 42%);
+  line-height: 1.5rem;
+  text-overflow: ellipsis;
+}
+
+.attribution {
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+@media screen and (min-width: 1400px) {
+  main {
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    -moz-column-gap: 2rem;
+         column-gap: 2rem;
+    row-gap: 4rem;
+  }
+  main header {
+    grid-column: 1/4;
+    grid-row: 1;
+  }
+  main header .nav-links .menu-btn {
+    display: none;
+  }
+  main header .nav-links ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    gap: 3.5rem;
+  }
+  main header .nav-links ul li > a {
+    text-decoration: none;
+    cursor: pointer;
+    color: hsl(236, 13%, 42%);
+    transition: all 300ms;
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+  main header .nav-links ul li > a:hover {
+    color: hsl(35, 77%, 62%);
+  }
+  main .first {
+    grid-column: 1/3;
+    grid-row: 2;
+  }
+  main .first .bg {
+    background-image: url("images/image-web-3-desktop.jpg");
+    height: 400px;
+  }
+  main .first .first-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 7rem;
+  }
+  main .first .first-content .big-head > h1 {
+    max-width: 355px;
+    width: 355px;
+    font-size: 4.5rem;
+    margin-bottom: 0;
+  }
+  main .first .first-content .text p {
+    line-height: 2.3rem;
+    margin-bottom: 3rem;
+    max-width: 510px;
+  }
+  main .first .first-content .text button {
+    padding: 1.65rem 3.65rem;
+    font-size: 1.5rem;
+  }
+  main .second {
+    grid-column: 3/4;
+    grid-row: 2;
+    gap: 0;
+  }
+  main .second span {
+    font-size: 3rem;
+  }
+  main .second .headline h3 {
+    font-size: 1.7rem;
+  }
+  main .second .headline p {
+    line-height: 2rem;
+  }
+  main .third {
+    grid-column: 1/4;
+    grid-row: 3;
+    flex-direction: row;
+  }
+  main .third .others {
+    gap: 2rem;
+    height: 155px;
+  }
+  main .third .others .sm-bg {
+    height: 155px;
+    width: 115px;
+  }
+  main .third .others .sm-news .num {
+    font-size: 2.5rem;
+  }
+  main .third .others .sm-news h4 {
+    font-size: 1.5rem;
+  }
+  main .third .others .sm-news p {
+    line-height: 2rem;
+  }
+}/*# sourceMappingURL=styles8.css.map */
